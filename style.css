@@ -13,7 +13,8 @@ body {
     background-color: var(--light-bg);
     color: var(--primary-blue);
     line-height: 1.6;
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    overflow-x: hidden; 
+    font-size: 18px; /* MUDANÇA: Aumentamos de 16px (padrão) para 18px */
 }
 
 /* --- HEADER --- */
@@ -91,32 +92,103 @@ nav a:hover { background: rgba(255,255,255,0.15); }
 }
 
 /* --- SEÇÃO INTRO --- */
+/* --- SEÇÃO INTRO / VANTAGENS --- */
 #home {
+    background-color: white;
+    padding: 60px 5%;
     text-align: center;
-    padding: 60px 20px;
+    border-bottom: 1px solid #eee; /* Uma linha sutil para separar */
+}
+
+.intro-header {
     max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.intro-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.intro-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Grid das vantagens */
+.benefits-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Garante que quebra linha no celular */
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.benefit-item {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    /* Opcional: borda ou fundo para cada item */
+    /* background: #f9f9f9; */
+    /* border-radius: 10px; */
+}
+
+.icon-box {
+    font-size: 3rem; /* Tamanho do ícone/emoji */
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 15px;
+    background: var(--light-bg); /* Círculo azul claro atrás */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 50px; /* Centraliza verticalmente */
+    color: var(--accent-blue);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.benefit-item h3 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.benefit-item p {
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .benefits-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .intro-header h2 { font-size: 1.8rem; }
 }
 #home h2 { font-size: 2rem; color: var(--accent-blue); margin-bottom: 15px; }
 #home p { font-size: 1.1rem; color: #555; }
 
 /* --- PRODUTOS --- */
+/* --- PRODUTOS (CARROSSEL) --- */
 #products {
-    padding: 40px 5%;
-    max-width: 1200px;
+    padding: 40px 0; /* Removemos o padding lateral para ir de ponta a ponta */
+    max-width: 100%; /* Ocupa a largura total da tela */
     margin: 0 auto 60px auto;
+    background: #fff; /* Fundo branco para destacar */
 }
+
 #products h2 { 
     text-align: center; 
     margin-bottom: 40px; 
     font-size: 2rem;
     position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    color: var(--primary-blue);
 }
 
-/* Detalhe visual embaixo do título */
 #products h2::after {
     content: '';
     display: block;
@@ -127,13 +199,35 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     border-radius: 2px;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+/* Container que segura as setas e o carrossel */
+.product-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* A lista de produtos (scroll horizontal) */
+.product-carousel {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto; /* Permite rolar horizontalmente */
+    scroll-behavior: smooth; /* Rolagem suave */
+    padding: 20px 5%; /* Espaço nas laterais */
+    width: 100%;
+    
+    /* Esconder a barra de rolagem (opcional, fica mais limpo) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
+.product-carousel::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+
+/* Os cartões de produto */
+/* 1. O cartão em si (agora mais estreito: 240px) */
 .product-card {
+    min-width: 240px;  /* Largura reduzida */
+    flex: 0 0 auto;
     background: white;
     padding: 20px;
     border-radius: 15px;
@@ -143,24 +237,22 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     border: 1px solid #eee;
 }
 
+/* 2. O efeito de flutuar (Pode manter!) */
 .product-card:hover {
-    transform: translateY(-5px); /* Efeito de flutuar ao passar o mouse */
+    transform: translateY(-5px); 
 }
 
+/* 3. A imagem (agora mais alta: 300px) */
 .product-card img { 
     width: 100%; 
-    height: 220px; 
-    object-fit: cover; 
+    height: 300px;       /* Altura aumentada para fotos verticais */
+    object-fit: cover;   
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
 .product-card h3 { margin: 10px 0; color: var(--primary-blue); }
-
-.product-desc {
-    color: #777; 
-    margin-bottom: 10px;
-}
+.product-desc { color: #777; margin-bottom: 10px; }
 
 .btn-delivery {
     display: inline-block;
@@ -175,6 +267,38 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     transition: background 0.3s;
 }
 .btn-delivery:hover { background: #1ebc57; }
+
+/* --- SETAS DE NAVEGAÇÃO --- */
+.arrow {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.arrow:hover { background-color: var(--accent-blue); transform: scale(1.1); }
+.arrow:active { transform: scale(0.9); }
+
+.arrow-left { left: 20px; }
+.arrow-right { right: 20px; }
+
+/* Mobile: Ajustar setas para não ficarem em cima do conteúdo */
+@media (max-width: 768px) {
+    .arrow { width: 40px; height: 40px; font-size: 1.2rem; }
+    .arrow-left { left: 10px; }
+    .arrow-right { right: 10px; }
+}
 
 /* --- SOBRE NÓS (NOVO DESIGN FULL WIDTH) --- */
 .about-section {
@@ -254,4 +378,38 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     .about-section { flex-direction: column-reverse; } 
     .about-text { padding: 40px 20px; }
     .about-image { height: 300px; }
+}
+
+/* Aumentando o Menu */
+nav a { 
+    font-size: 1.1rem; /* Menu um pouco maior */
+    font-weight: 700;  /* Mais negrito para destacar */
+}
+
+/* Títulos das Seções (H2) - Para preencher mais espaço */
+h2, #products h2, .intro-header h2, .about-text h2 {
+    font-size: 2.6rem; /* Aumentamos bem o tamanho (era aprox 2rem) */
+}
+
+/* Texto descritivo da intro (aquela parte nova dos ícones) */
+.intro-header p {
+    font-size: 1.3rem; /* Texto de apoio maior */
+    max-width: 900px;  /* Permite que o texto ocupe mais largura antes de quebrar */
+}
+
+/* Títulos dos Cards de Produto */
+.product-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* Botão de Pedir */
+.btn-delivery {
+    font-size: 1.1rem; /* Texto do botão maior */
+    padding: 14px 30px; /* Botão mais gordinho */
+}
+
+/* Rodapé */
+.footer-section p {
+    font-size: 1.2rem; /* Rodapé mais legível */
 }

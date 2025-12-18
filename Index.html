@@ -44,32 +44,57 @@
         </div>
     </div>
 
-    <section id="home">
-        <h2>Pescados frescos entregues na porta da sua casa!</h2>
-        <p>Na Pescados Casa Forte, nos orgulhamos de oferecer os pescados mais frescos diretamente do oceano até sua mesa.</p>
-    </section>
+   <section id="home">
+    <div class="intro-header">
+        <h2>Do mar direto para sua porta</h2>
+        <p>Na Pescados Casa Forte, selecionamos o melhor para você.</p>
+    </div>
+
+    <div class="benefits-container">
+        <div class="benefit-item">
+            <div class="icon-box">🌊</div> <h3>100% Frescos</h3>
+            <p>Pescados selecionados diariamente para garantir o sabor.</p>
+        </div>
+        
+        <div class="benefit-item">
+            <div class="icon-box">🛵</div>
+            <h3>Delivery Rápido</h3>
+            <p>Entregamos na sua casa com toda a segurança e higiene.</p>
+        </div>
+
+        <div class="benefit-item">
+            <div class="icon-box">❄️</div>
+            <h3>Embalagem Ideal</h3>
+            <p>Seu pedido chega na temperatura perfeita para o consumo.</p>
+        </div>
+    </div>
+</section>
 
     <section id="products">
         <h2>Nossos Produtos</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="imagens/agulha.jpeg" alt="Peixe Agulha">
-                <h3>Peixes Frescos</h3>
-                <p class="product-desc">Variedade do dia</p>
-                <a href="https://wa.me/558130718296" class="btn-delivery">Pedir Agora</a>
-            </div>
-            <div class="product-card">
-                <img src="imagens/Camarao.jpeg" alt="Camarão">
-                <h3>Camarão</h3>
-                <p class="product-desc">Limpo e descascado</p>
-                <a href="https://wa.me/558130718296" class="btn-delivery">Pedir Agora</a>
-            </div>
-            <div class="product-card">
-                <img src="imagens/Polvo.jpeg" alt="Polvo">
-                <h3>Polvo</h3>
-                <p class="product-desc">Tenro e saboroso</p>
-                <a href="https://wa.me/558130718296" class="btn-delivery">Pedir Agora</a>
-            </div>
+        <div class="product-carousel-wrapper">
+            <button class="arrow arrow-left" aria-label="Anterior">&#10094;</button>
+            <div class="product-carousel">
+                <div class="product-card">
+                    <img src="imagens/agulha.jpeg" alt="Peixe Agulha">
+                    <h3>Peixes Frescos</h3>
+                    <p class="product-desc">Variedade do dia</p>
+                    <a href="https://wa.me/558130718296" class="btn-delivery">Pedir Agora</a>
+                </div>
+                <div class="product-card">
+                    <img src="imagens/Camarao.jpeg" alt="Camarão">
+                    <h3>Camarão</h3>
+                    <p class="product-desc">Limpo e descascado</p>
+                    <a href="https://wa.me/558130718296" class="btn-delivery">Pedir Agora</a>
+                </div>
+                <div class="product-card">
+                    <img src="imagens/Polvo.jpeg" alt="Polvo">
+                    <h3>Polvo</h3>
+                    <p class="product-desc">Tenro e saboroso</p>
+                    <a href="https://wa.me/558130718296" class="btn-delivery">Pedir Agora</a>
+                </div>
+                </div>
+            <button class="arrow arrow-right" aria-label="Próximo">&#10095;</button>
         </div>
     </section>
 
@@ -97,6 +122,20 @@
             <p>&copy; 2024 Casa Forte Pescados. Todos os direitos reservados.</p>
         </footer>
     </div>
+
+    <script>
+    const carousel = document.querySelector('.product-carousel');
+    const arrowLeft = document.querySelector('.arrow-left');
+    const arrowRight = document.querySelector('.arrow-right');
+
+    arrowRight.addEventListener('click', () => {
+        carousel.scrollBy({ left: 340, behavior: 'smooth' }); // Rola 340px para direita
+    });
+
+    arrowLeft.addEventListener('click', () => {
+        carousel.scrollBy({ left: -340, behavior: 'smooth' }); // Rola 340px para esquerda
+    });
+</script>
 
 </body>
 </html>
