@@ -1,0 +1,88 @@
+// Casa Forte Pescados - Estilos Globais
+
+// Variáveis customizadas
+:root {
+  --primary-blue: #243252;
+  --accent-blue: #0d6b82;
+  --light-bg: #f8fbfc;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+// Reset e base
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--primary-blue);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Tipografia
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-blue);
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Scrollbar customizada (opcional)
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}
+
+// Animações suaves
+.q-page {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Ajustes do Quasar Carousel
+.q-carousel {
+  .q-carousel__arrow {
+    .q-btn {
+      background: rgba(36, 50, 82, 0.8) !important;
+      
+      &:hover {
+        background: rgba(36, 50, 82, 1) !important;
+      }
+    }
+  }
+}
+
+// Utilitários
+.full-height {
+  height: 100%;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
