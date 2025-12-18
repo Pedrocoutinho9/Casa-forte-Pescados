@@ -8,6 +8,15 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html {
+    scroll-behavior: smooth; /* Faz a rolagem suave */
+}
+
+/* Isso garante que, ao clicar, o título não fique escondido atrás do menu */
+section, .footer-section {
+    scroll-margin-top: 120px; /* Ajuste esse valor conforme a altura do seu header */
+}
+
 body {
     font-family: "Segoe UI", sans-serif;
     background-color: var(--light-bg);
@@ -36,7 +45,7 @@ header {
 }
 
 .logo-area { display: flex; align-items: center; gap: 15px; }
-.logo-img { height: 60px; width: auto; }
+.logo-img { height: 90px; width: auto; }
 .brand-name { color: white; font-weight: bold; font-size: 1.2rem; }
 
 nav ul { display: flex; list-style: none; gap: 20px; }
