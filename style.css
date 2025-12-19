@@ -9,12 +9,12 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-    scroll-behavior: smooth; /* Faz a rolagem suave */
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
 }
 
-/* Isso garante que, ao clicar, o título não fique escondido atrás do menu */
+/* Garante que o título da seção não fique escondido atrás do menu fixo */
 section, .footer-section {
-    scroll-margin-top: 120px; /* Ajuste esse valor conforme a altura do seu header */
+    scroll-margin-top: 100px;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
     color: var(--primary-blue);
     line-height: 1.6;
     overflow-x: hidden; 
-    font-size: 18px; /* MUDANÇA: Aumentamos de 16px (padrão) para 18px */
+    font-size: 18px; /* Fonte base aumentada */
 }
 
 /* --- HEADER --- */
@@ -45,18 +45,26 @@ header {
 }
 
 .logo-area { display: flex; align-items: center; gap: 15px; }
-.logo-img { height: 90px; width: auto; }
+.logo-img { height: 90px; width: auto; transition: 0.3s; }
 .brand-name { color: white; font-weight: bold; font-size: 1.2rem; }
 
 nav ul { display: flex; list-style: none; gap: 20px; }
-nav a { color: white; text-decoration: none; font-weight: 600; padding: 8px 12px; border-radius: 5px; transition: 0.3s; }
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 1.1rem;
+    padding: 8px 12px; 
+    border-radius: 5px; 
+    transition: 0.3s; 
+}
 nav a:hover { background: rgba(255,255,255,0.15); }
 
-/* --- CARROSSEL (BANNER) --- */
+/* --- CARROSSEL PRINCIPAL (BANNER) --- */
 .carousel-container {
     width: 100%;
     overflow: hidden;
-    height: 70vh; /* Ocupa 70% da altura da tela */
+    height: 70vh;
     position: relative;
 }
 
@@ -76,8 +84,8 @@ nav a:hover { background: rgba(255,255,255,0.15); }
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha tudo sem distorcer */
-    filter: brightness(0.85); /* Leve escurecida para o texto aparecer melhor */
+    object-fit: cover;
+    filter: brightness(0.85);
 }
 
 .carousel-caption {
@@ -87,7 +95,7 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     background: rgba(36, 50, 82, 0.9);
     color: white;
     padding: 20px 40px;
-    border-radius: 0 50px 50px 0; /* Design orgânico */
+    border-radius: 0 50px 50px 0;
     font-size: 1.8rem;
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -100,37 +108,35 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     100% { transform: translateX(0); }
 }
 
-/* --- SEÇÃO INTRO --- */
-/* --- SEÇÃO INTRO / VANTAGENS --- */
+/* --- SEÇÃO VANTAGENS (INTRO) --- */
 #home {
     background-color: white;
-    padding: 60px 5%;
+    padding: 80px 5%; /* Padding aumentado */
     text-align: center;
-    border-bottom: 1px solid #eee; /* Uma linha sutil para separar */
+    border-bottom: 1px solid #eee;
 }
 
 .intro-header {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto 50px auto;
 }
 
 .intro-header h2 {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     color: var(--primary-blue);
     margin-bottom: 15px;
 }
 
 .intro-header p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: #666;
 }
 
-/* Grid das vantagens */
 .benefits-container {
     display: flex;
     justify-content: center;
     gap: 40px;
-    flex-wrap: wrap; /* Garante que quebra linha no celular */
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -139,61 +145,37 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     flex: 1;
     min-width: 250px;
     padding: 20px;
-    /* Opcional: borda ou fundo para cada item */
-    /* background: #f9f9f9; */
-    /* border-radius: 10px; */
 }
 
 .icon-box {
-    font-size: 3rem; /* Tamanho do ícone/emoji */
+    font-size: 3rem;
     margin-bottom: 15px;
     display: inline-block;
     padding: 15px;
-    background: var(--light-bg); /* Círculo azul claro atrás */
+    background: var(--light-bg);
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    line-height: 50px; /* Centraliza verticalmente */
+    line-height: 50px;
     color: var(--accent-blue);
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.benefit-item h3 {
-    color: var(--primary-blue);
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-}
+.benefit-item h3 { color: var(--primary-blue); margin-bottom: 10px; font-size: 1.3rem; }
+.benefit-item p { color: #777; font-size: 1rem; line-height: 1.5; }
 
-.benefit-item p {
-    color: #777;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Ajuste Mobile */
-@media (max-width: 768px) {
-    .benefits-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .intro-header h2 { font-size: 1.8rem; }
-}
-#home h2 { font-size: 2rem; color: var(--accent-blue); margin-bottom: 15px; }
-#home p { font-size: 1.1rem; color: #555; }
-
-/* --- PRODUTOS --- */
-/* --- PRODUTOS (CARROSSEL) --- */
+/* --- SEÇÃO PRODUTOS (CARROSSEL) --- */
 #products {
-    padding: 40px 0; /* Removemos o padding lateral para ir de ponta a ponta */
-    max-width: 100%; /* Ocupa a largura total da tela */
-    margin: 0 auto 60px auto;
-    background: #fff; /* Fundo branco para destacar */
+    padding: 60px 0;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
 }
 
 #products h2 { 
     text-align: center; 
     margin-bottom: 40px; 
-    font-size: 2rem;
+    font-size: 2.6rem;
     position: relative;
     color: var(--primary-blue);
 }
@@ -208,7 +190,6 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     border-radius: 2px;
 }
 
-/* Container que segura as setas e o carrossel */
 .product-carousel-wrapper {
     position: relative;
     width: 100%;
@@ -217,25 +198,19 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     justify-content: center;
 }
 
-/* A lista de produtos (scroll horizontal) */
 .product-carousel {
     display: flex;
     gap: 30px;
-    overflow-x: auto; /* Permite rolar horizontalmente */
-    scroll-behavior: smooth; /* Rolagem suave */
-    padding: 20px 5%; /* Espaço nas laterais */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 5%;
     width: 100%;
-    
-    /* Esconder a barra de rolagem (opcional, fica mais limpo) */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;
 }
-.product-carousel::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+.product-carousel::-webkit-scrollbar { display: none; }
 
-/* Os cartões de produto */
-/* 1. O cartão em si (agora mais estreito: 240px) */
 .product-card {
-    min-width: 240px;  /* Largura reduzida */
+    min-width: 240px; /* Card mais estreito */
     flex: 0 0 auto;
     background: white;
     padding: 20px;
@@ -246,38 +221,34 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     border: 1px solid #eee;
 }
 
-/* 2. O efeito de flutuar (Pode manter!) */
-.product-card:hover {
-    transform: translateY(-5px); 
-}
+.product-card:hover { transform: translateY(-5px); }
 
-/* 3. A imagem (agora mais alta: 300px) */
 .product-card img { 
     width: 100%; 
-    height: 300px;       /* Altura aumentada para fotos verticais */
-    object-fit: cover;   
+    height: 300px; /* Imagem alta para formato retrato */
+    object-fit: cover; 
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
-.product-card h3 { margin: 10px 0; color: var(--primary-blue); }
-.product-desc { color: #777; margin-bottom: 10px; }
+.product-card h3 { margin: 10px 0; color: var(--primary-blue); font-size: 1.5rem; font-weight: 800; }
+.product-desc { color: #777; margin-bottom: 15px; }
 
 .btn-delivery {
     display: inline-block;
     background: #25d366;
     color: white;
-    padding: 12px 25px;
+    padding: 14px 30px;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    margin-top: 10px;
+    font-size: 1.1rem;
     box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
     transition: background 0.3s;
 }
 .btn-delivery:hover { background: #1ebc57; }
 
-/* --- SETAS DE NAVEGAÇÃO --- */
+/* Setas */
 .arrow {
     background-color: var(--primary-blue);
     color: white;
@@ -293,180 +264,139 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: background 0.3s, transform 0.2s;
+    transition: 0.3s;
 }
-
 .arrow:hover { background-color: var(--accent-blue); transform: scale(1.1); }
-.arrow:active { transform: scale(0.9); }
-
 .arrow-left { left: 20px; }
 .arrow-right { right: 20px; }
 
-/* Mobile: Ajustar setas para não ficarem em cima do conteúdo */
+/* --- SEÇÕES DIVIDIDAS (RECEITAS & SOBRE NÓS) --- */
+/* Esta classe controla o layout "Xadrez" sem bordas */
+/* --- SEÇÕES DIVIDIDAS (XADREZ RÍGIDO) --- */
+
+.split-section {
+    display: flex;
+    flex-wrap: wrap;       /* Garante que quebre linha se necessário */
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: stretch;  /* Estica a imagem para acompanhar a altura do texto */
+}
+
+/* FORÇA BRUTA: Trava a largura em exatos 50% */
+.split-text, .split-image {
+    flex: 0 0 50%;        /* Não cresce, não encolhe, fixa em 50% */
+    width: 50%;           /* Largura explícita */
+    max-width: 50%;       /* Trava de segurança */
+}
+
+/* Configuração da Imagem */
+.split-image {
+    position: relative;
+    min-height: 500px;    /* Altura mínima para não sumir */
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Preenche sem distorcer */
+    display: block;       /* Remove linha branca inferior */
+}
+
+/* Configuração do Texto + CORES DE FUNDO (Essencial para o visual) */
+.split-text {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Cor 1: Fundo do texto da Receita (Azul Escuro) */
+/* Isso fará a imagem da direita (Sobre Nós) encostar neste bloco azul */
+#receitas .split-text {
+    background-color: var(--primary-blue);
+    color: white;
+}
+#receitas .split-text h2, 
+#receitas .split-text p {
+    color: white;
+}
+
+/* Cor 2: Fundo do texto Sobre Nós (Cinza Claro) */
+/* Isso fará a imagem de cima (Receita) encostar neste bloco cinza */
+#about .split-text {
+    background-color: #f0f4f8; 
+    color: var(--primary-blue);
+}
+
+/* RESPONSIVIDADE (Celular) */
 @media (max-width: 768px) {
-    .arrow { width: 40px; height: 40px; font-size: 1.2rem; }
-    .arrow-left { left: 10px; }
-    .arrow-right { right: 10px; }
+    .split-text, .split-image {
+        flex: 0 0 100%;   /* No celular ocupa 100% */
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .split-image { height: 300px; min-height: auto; }
+    
+    /* Mantém a ordem correta no celular */
+    #about.split-section { flex-direction: column-reverse; }
 }
 
-/* --- SOBRE NÓS (NOVO DESIGN FULL WIDTH) --- */
-.about-section {
-    display: flex; /* Coloca lado a lado */
-    width: 100%;
-    background: white;
-    margin: 0; /* Remove margens externas */
-    min-height: 500px; /* Altura mínima */
-}
-
-.about-text {
-    flex: 1; /* Ocupa 50% */
-    padding: 80px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.about-text h2 {
-    font-size: 2.5rem;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.about-image {
-    flex: 1; /* Ocupa 50% */
-    background-image: url('imagens/Logo.png'); /* Fallback */
-    position: relative;
-}
-
-/* Ajuste para a imagem ocupar tudo */
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* --- SEÇÃO RECEITAS --- */
-.receita-section {
-    display: flex; /* Coloca lado a lado */
-    width: 100%;
-    background: white;
-    margin: 0; /* Remove margens externas */
-    min-height: 500px; /* Altura mínima */
-    margin-bottom: px;
-}
-
-.receita-text {
-    flex: 1; /* Ocupa 50% */
-    padding: 80px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.receita-text h2 {
-    font-size: 2.5rem;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-}
-
-.receita-text p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.receita-image {
-    flex: 1; /* Ocupa 50% */
-    background-image: url('imagens/Logo.png'); /* Fallback */
-    position: relative;
-}
-
-/* Ajuste para a imagem ocupar tudo */
-.receita-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-
-
-/* --- CONTATO / FOOTER --- */
+/* --- FOOTER --- */
 .footer-section {
     background: var(--primary-blue);
     color: #fff;
-    padding: 60px 20px 20px 20px;
+    padding: 80px 20px 30px 20px;
     text-align: center;
 }
-
 .contact-content h2 { font-size: 1.8rem; margin-bottom: 20px; }
-.contact-content p { margin: 10px 0; font-size: 1.1rem; opacity: 0.9; }
-
+.contact-content p { margin: 10px 0; font-size: 1.2rem; opacity: 0.9; }
 .footer-copy {
-    margin-top: 40px;
+    margin-top: 50px;
     padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.1);
     font-size: 0.9rem;
     color: #ccc;
 }
 
-/* --- RESPONSIVIDADE (MOBILE) --- */
+/* --- MEDIA QUERIES (RESPONSIVIDADE) --- */
+
+/* Mobile e Tablets Pequenos */
 @media (max-width: 768px) {
-    /* Header */
     .header-container { flex-direction: column; gap: 15px; }
     nav ul { flex-wrap: wrap; justify-content: center; }
+    .logo-img { height: 70px; }
     
-    /* Banner */
     .carousel-container { height: 50vh; } 
     .carousel-caption { font-size: 1.2rem; padding: 10px 20px; width: 90%; }
+    
+    .arrow { width: 40px; height: 40px; font-size: 1.2rem; }
+    .arrow-left { left: 5px; }
+    .arrow-right { right: 5px; }
 
-    /* Sobre Nós (Empilha verticalmente) */
-    .about-section { flex-direction: column-reverse; } 
-    .about-text { padding: 40px 20px; }
-    .about-image { height: 300px; }
+    /* Transforma o layout lado-a-lado em coluna */
+    .split-section { flex-direction: column; }
+    .split-image { height: 300px; min-height: auto; }
+    .split-text { padding: 40px 20px; }
+    
+    /* Inverte a ordem no "Sobre Nós" para a imagem não ficar embaixo de tudo */
+    #about.split-section { flex-direction: column-reverse; }
 }
 
-/* Aumentando o Menu */
-nav a { 
-    font-size: 1.1rem; /* Menu um pouco maior */
-    font-weight: 700;  /* Mais negrito para destacar */
-}
+/* Telas Grandes (Full Screen Desktop) */
+@media (min-width: 1400px) {
+    body { font-size: 20px; }
+    
+    .header-container, .benefits-container, .intro-header {
+        max-width: 1600px;
+        width: 90%;
+    }
 
-/* Títulos das Seções (H2) - Para preencher mais espaço */
-h2, #products h2, .intro-header h2, .about-text h2 {
-    font-size: 2.6rem; /* Aumentamos bem o tamanho (era aprox 2rem) */
-}
-
-/* Texto descritivo da intro (aquela parte nova dos ícones) */
-.intro-header p {
-    font-size: 1.3rem; /* Texto de apoio maior */
-    max-width: 900px;  /* Permite que o texto ocupe mais largura antes de quebrar */
-}
-
-/* Títulos dos Cards de Produto */
-.product-card h3 {
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-/* Botão de Pedir */
-.btn-delivery {
-    font-size: 1.1rem; /* Texto do botão maior */
-    padding: 14px 30px; /* Botão mais gordinho */
-}
-
-/* Rodapé */
-.footer-section p {
-    font-size: 1.2rem; /* Rodapé mais legível */
+    .carousel-container { height: 80vh; }
+    
+    .product-card img { height: 400px; }
+    .product-card { min-width: 300px; }
+    
+    .icon-box { width: 100px; height: 100px; line-height: 70px; font-size: 4rem; }
 }
