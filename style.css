@@ -354,6 +354,54 @@ nav a:hover { background: rgba(255,255,255,0.15); }
     display: block;
 }
 
+/* --- SEÇÃO RECEITAS --- */
+.receita-section {
+    display: flex; /* Coloca lado a lado */
+    width: 100%;
+    background: white;
+    margin: 0; /* Remove margens externas */
+    min-height: 500px; /* Altura mínima */
+    margin-bottom: px;
+}
+
+.receita-text {
+    flex: 1; /* Ocupa 50% */
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.receita-text h2 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.receita-text p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.receita-image {
+    flex: 1; /* Ocupa 50% */
+    background-image: url('imagens/Logo.png'); /* Fallback */
+    position: relative;
+}
+
+/* Ajuste para a imagem ocupar tudo */
+.receita-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
 /* --- CONTATO / FOOTER --- */
 .footer-section {
     background: var(--primary-blue);
